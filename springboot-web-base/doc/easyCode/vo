@@ -1,0 +1,37 @@
+##导入宏定义
+$!define
+
+##设置表后缀（宏定义）
+#setTableSuffix("Vo")
+
+##保存文件（宏定义）
+#save("/vo", "Vo.java")
+
+##包路径（宏定义）
+#setPackageSuffix("vo")
+
+##自动导入包（全局变量）
+$!autoImport
+import java.io.Serializable;
+import io.swagger.annotations.*;
+import lombok.Data;
+
+##表注释（宏定义）
+#tableComment("Vo类")
+@ApiModel(description = "${tableInfo.comment}，接口返回对象")
+@Data
+public class $!{tableName} implements Serializable {
+
+private static final long serialVersionUID = $!tool.serial();
+
+    #foreach($column in $tableInfo.fullColumn)
+        #if(${column.comment})
+        /**
+        * ${column.comment}
+        */#end
+
+    @ApiModelProperty(value="#if($column.comment)$column.comment#end",name="${column.name}")
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+
+    #end
+}

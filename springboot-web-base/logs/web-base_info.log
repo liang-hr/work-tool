@@ -1,0 +1,38 @@
+2020-10-30 10:53:00.682 [main] INFO  com.liang3hua.springboot.web.base.RetrofitTest [StartupInfoLogger.java : 55]- [1322008575119331329]- Starting RetrofitTest on LAPTOP-HFROD0IH with PID 20956 (started by liang3hua in D:\code\vsp\work-tool\springboot-web-base)
+2020-10-30 10:53:00.697 [main] INFO  com.liang3hua.springboot.web.base.RetrofitTest [SpringApplication.java : 655]- [1322008575119331329]- The following profiles are active: dev,retrofit
+2020-10-30 10:53:01.620 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 249]- [1322008575119331329]- Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-30 10:53:01.624 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127]- [1322008575119331329]- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-30 10:53:01.666 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 187]- [1322008575119331329]- Finished Spring Data repository scanning in 22ms. Found 0 Redis repository interfaces.
+2020-10-30 10:53:01.814 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner [Logger.java : 44]- [1322008575119331329]- No MyBatis mapper was found in '[com.liang3hua.springboot.web.base.dao]' package. Please check your configuration.
+2020-10-30 10:53:03.582 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 181]- [1322008575119331329]- Initializing ExecutorService
+2020-10-30 10:53:03.592 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 181]- [1322008575119331329]- Initializing ExecutorService 'commonExecutor'
+2020-10-30 10:53:03.641 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping [PropertySourcedRequestMappingHandlerMapping.java : 69]- [1322008575119331329]- Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-10-30 10:53:03.965 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56]- [1322008575119331329]- Init DruidDataSource
+2020-10-30 10:53:08.634 [main] INFO  com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 971]- [1322008575119331329]- {dataSource-1} inited
+2020-10-30 10:53:09.447 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper [DocumentationPluginsBootstrapper.java : 160]- [1322008575119331329]- Context refreshed
+2020-10-30 10:53:09.475 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper [DocumentationPluginsBootstrapper.java : 163]- [1322008575119331329]- Found 1 custom documentation plugin(s)
+2020-10-30 10:53:09.511 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner [ApiListingReferenceScanner.java : 41]- [1322008575119331329]- Scanning for api listing references
+2020-10-30 10:53:09.533 [main] INFO  com.liang3hua.springboot.web.base.RetrofitTest [StartupInfoLogger.java : 61]- [1322008575119331329]- Started RetrofitTest in 9.367 seconds (JVM running for 10.345)
+2020-10-30 10:53:11.748 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 169]- [1322008575119331329]- --> GET https://www.talentread.com/ http/1.1
+2020-10-30 10:53:11.748 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Host: www.talentread.com
+2020-10-30 10:53:11.748 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Connection: Keep-Alive
+2020-10-30 10:53:11.748 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Accept-Encoding: gzip
+2020-10-30 10:53:11.749 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- User-Agent: okhttp/3.14.9
+2020-10-30 10:53:11.749 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 193]- [1322008575119331329]- --> END GET
+2020-10-30 10:53:11.806 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 233]- [1322008575119331329]- <-- 200 OK https://www.talentread.com/ (57ms)
+2020-10-30 10:53:11.807 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Date: Fri, 30 Oct 2020 02:53:11 GMT
+2020-10-30 10:53:11.807 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Server: Apache
+2020-10-30 10:53:11.807 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Access-Control-Allow-Origin: *
+2020-10-30 10:53:11.807 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Access-Control-Allow-Methods: POST, GET, PUT, PATCH, DELETE, OPTIONS
+2020-10-30 10:53:11.807 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Access-Control-Allow-Headers: *
+2020-10-30 10:53:11.807 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Vary: Accept-Encoding
+2020-10-30 10:53:11.808 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Content-Encoding: gzip
+2020-10-30 10:53:11.808 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Content-Length: 37
+2020-10-30 10:53:11.808 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Keep-Alive: timeout=5, max=100
+2020-10-30 10:53:11.808 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Connection: Keep-Alive
+2020-10-30 10:53:11.808 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 294]- [1322008575119331329]- Content-Type: text/html; charset=utf-8
+2020-10-30 10:53:11.811 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 276]- [1322008575119331329]- 
+2020-10-30 10:53:11.811 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 277]- [1322008575119331329]- version v20191200
+2020-10-30 10:53:11.811 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor [HttpLoggingInterceptor.java : 281]- [1322008575119331329]- <-- END HTTP (17-byte, 37-gzipped-byte body)
+2020-10-30 10:53:11.833 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1908]- [1322008575119331329]- {dataSource-1} closed
+2020-10-30 10:53:11.833 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 218]- [1322008575119331329]- Shutting down ExecutorService 'commonExecutor'

@@ -1,0 +1,45 @@
+##导入宏定义
+$!define
+
+##设置表后缀（宏定义）
+#setTableSuffix("Service")
+
+##保存文件（宏定义）
+#save("/service", "Service.java")
+
+##包路径（宏定义）
+#setPackageSuffix("service")
+
+##定义返参类名
+#set($voClz =  $!tool.append($!tableInfo.name,"Vo"))
+##定义实体返参名
+#set($voName =  $!tool.append($!tool.firstLowerCase($!tableInfo.name),"Vo"))
+
+##定义返参类名
+#set($qoClz =  $!tool.append($!tableInfo.name,"Qo"))
+##定义实体返参名
+#set($qoName =  $!tool.append($!tool.firstLowerCase($!tableInfo.name),"Qo"))
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import $!{tableInfo.savePackageName}.entity.$!tableInfo.name;
+import $!{tableInfo.savePackageName}.qo.*;
+import $!{tableInfo.savePackageName}.vo.*;
+
+##表注释（宏定义）
+#tableComment("表服务接口")
+public interface $!{tableName} extends IService<$!tableInfo.name> {
+
+    PageResult<$!{voClz}> selectByPage(BasePageQo pageQo);
+
+    List<$!{voClz}> listAll();
+
+    $!{voClz} selectOne(Long id);
+
+    void insert($!{qoClz} $!{qoName});
+
+    void modify($!{qoClz} $!{qoName});
+
+    void deleteByIds(List<Long> idList);
+
+    void delete(Long id);
+}

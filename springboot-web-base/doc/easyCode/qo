@@ -1,0 +1,50 @@
+##导入宏定义
+$!define
+
+##设置表后缀（宏定义）
+#setTableSuffix("Qo")
+
+##保存文件（宏定义）
+#save("/qo", "Qo.java")
+
+##包路径（宏定义）
+#setPackageSuffix("qo")
+
+##自动导入包（全局变量）
+$!autoImport
+import java.io.Serializable;
+import io.swagger.annotations.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+##表注释（宏定义）
+#tableComment("Qo类")
+@ApiModel(description = "${tableInfo.comment}，新增、更新操作传参")
+@NoArgsConstructor
+@Data
+public class $!{tableName} implements Serializable {
+
+    private static final long serialVersionUID = $!tool.serial();
+
+    #foreach($column in $tableInfo.fullColumn)
+        #if(${column.name}== "creator" || ${column.name}== "createTime"
+        || ${column.name}== "updater" || ${column.name}== "updateTime"
+        || ${column.name}== "md5")
+        #elseif(${column.name}== ${tableInfo.pkColumn[0].name})
+            #if(${column.comment})
+            /**
+            * ${column.comment}
+            */#end
+        @ApiModelProperty(value="#if($column.comment)$column.comment#end，新增操作不传，更新操作必传",name="${column.name}")
+        private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+        #else
+            #if(${column.comment})
+            /**
+            * ${column.comment}
+            */#end
+        @ApiModelProperty(value="#if($column.comment)$column.comment#end",name="${column.name}")
+        private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+        #end
+
+    #end
+}

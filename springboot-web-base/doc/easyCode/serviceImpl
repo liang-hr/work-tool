@@ -1,0 +1,105 @@
+##导入宏定义
+$!define
+
+##设置表后缀（宏定义）
+#setTableSuffix("ServiceImpl")
+
+##保存文件（宏定义）
+#save("/service/impl", "ServiceImpl.java")
+
+##包路径（宏定义）
+#setPackageSuffix("service.impl")
+
+##定义实体对象名
+#set($entityName = $!tool.firstLowerCase($!tableInfo.name))
+
+##定义返参类名
+#set($voClz =  $!tool.append($!tableInfo.name,"Vo"))
+##定义实体返参名
+#set($voName =  $!tool.append($!tool.firstLowerCase($!tableInfo.name),"Vo"))
+
+##定义返参类名
+#set($qoClz =  $!tool.append($!tableInfo.name,"Qo"))
+##定义实体返参名
+#set($qoName =  $!tool.append($!tool.firstLowerCase($!tableInfo.name),"Qo"))
+
+##转换器对象
+#set($convertName =  $!tool.append($!tool.firstLowerCase($!tableInfo.name),"Convert"))
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import $!{tableInfo.savePackageName}.dao.$!{tableInfo.name}Dao;
+import $!{tableInfo.savePackageName}.entity.$!{tableInfo.name};
+import $!{tableInfo.savePackageName}.service.$!{tableInfo.name}Service;
+import $!{tableInfo.savePackageName}.qo.*;
+import $!{tableInfo.savePackageName}.vo.*;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+##表注释（宏定义）
+#tableComment("表服务实现类")
+@Service("$!tool.firstLowerCase($tableInfo.name)Service")
+public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Dao, $!{tableInfo.name}> implements $!{tableInfo.name}Service {
+    @Resource
+    private $!{tableInfo.name}Convert $!{convertName};
+
+    @Override
+    public PageResult<$!{voClz}> selectByPage(BasePageQo pageQo){
+
+        Page<$!{tableInfo.name}> page = new Page<>(pageQo.getPageNum(), pageQo.getPageSize());
+        LambdaQueryWrapper<$!{tableInfo.name}> wrapper = new LambdaQueryWrapper<>();
+
+        IPage iPage = this.page(page, wrapper);
+
+        List<$!{voClz}> records = $!{convertName}.convert2Vo(iPage.getRecords());
+        iPage.setRecords(records);
+
+        return new PageResult<>(iPage);
+    };
+
+    @Override
+    public List<$!{voClz}> listAll() {
+        List<$!{tableInfo.name}> list = this.lambdaQuery().list();
+        List<$!{voClz}> result = $!{convertName}.convert2Vo(list);
+        return result;
+    }
+
+    @Override
+    public $!{voClz} selectOne(Long id) {
+        $!{tableInfo.name} $!{entityName} = this.getById(id);
+        $!{voClz} $!{voName} = $!{convertName}.convert2Vo($!{entityName});
+        return $!{voName};
+    }
+
+    @Override
+    @Transactional
+    public void insert($!{qoClz} $!{qoName}) {
+        $!{tableInfo.name} $!{entityName} = $!{convertName}.convertQo($!{qoName});
+        this.save($!{entityName});
+    }
+
+    @Override
+    @Transactional
+    public void modify($!{qoClz} $!{qoName}) {
+    $!{tableInfo.name} $!{entityName} = $!{convertName}.convertQo($!{qoName});
+        this.updateById($!{entityName});
+    }
+
+    @Override
+    @Transactional
+    public void deleteByIds(List<Long> idList) {
+        this.removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long id) {
+    this.removeById(id);
+    }
+
+}
